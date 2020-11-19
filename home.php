@@ -101,17 +101,15 @@
                 modal.find('.modal-title').text(button + ' Data Kucing')
                 modal.find('.btn-primary').attr('id', button)
 
+                var data = $('#forms').serialize();
                 $("#Tambah").on("click", function() {
                 // alert('gerrr')
                 $.ajax({
                     url: 'simpan.php',
                     method: 'POST',
-                    data: {
-                        nama_kucing: $('nama-kucing').val(),
-                        asal_kucing: $('nama-kucing').val()
-                    },
+                    data: data,
                     success: function(data) {
-                        alert(data);
+                        // alert(data);
                     }
                 });
             });

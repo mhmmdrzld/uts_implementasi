@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="forms">
                     <div class="form-group">
                         <label for="nama-kucing" class="col-form-label">Nama Kucing:</label>
                         <input type="text" name="nama_kucing" class="form-control" id="nama-kucing" require>
