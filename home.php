@@ -17,6 +17,12 @@
 <body>
     <div class="container-fluid">
         <div class="row p-3">
+            <div class=" col-md-6">
+                <button id="tambah">Tambah</button>
+            </div>
+            <br>
+        </div>
+        <div class="row p-3">
             <div class="col-md-6">
                 <table id="table_id" class="display">
                     <thead>
@@ -56,7 +62,7 @@
                 "columns": [{
                         "data": "nama_kucing",
                         render: function(data, type, row) {
-                            return i++;
+                            return data;
                         }
                     },
                     {
@@ -68,11 +74,20 @@
                     {
                         "data": "id",
                         render: function(data, type, row) {
-                            return data;
+                            return '<button id="edit">Edit</button> |  <button id="hapus">Hapus</button>';
                         }
                     },
                 ]
             });
+
+            table.on('order.dt search.dt', function() {
+                table.column(0, {
+                    search: 'applied',
+                    order: 'applied'
+                }).nodes().each(function(cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
         });
     </script>
 
