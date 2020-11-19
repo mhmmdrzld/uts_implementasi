@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row p-3">
             <div class=" col-md-6">
-                <button id="tambah">Tambah</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-status="Tambah">Tambah</button>
             </div>
             <br>
         </div>
@@ -40,10 +40,29 @@
             </div>
         </div>
     </div>
+    <?php include 'modals.php' ?>
     <script>
         $(document).ready(function() {
+            $("#Tambah").on("click", function() {
+                alert('gerrr')
+                // $.ajax({
+                //     url: 'simpan.php',
+                //     method: 'POST',
+                //     data: {
+                //         nama_kucing: $('nama-kucing').val(),
+                //         asal_kucing: $('nama-kucing').val()
+                //     },
+                //     success: function(data) {
+                //         alert(data);
+                //     }
+                // });
+            });
+
             var i = 1;
             var table = $('#table_id').DataTable({
+                "language": {
+                    "processing": "Sedang Menampilkan Data"
+                },
                 "processing": true,
                 "serverSide": true,
                 "ordering": true,
@@ -74,7 +93,7 @@
                     {
                         "data": "id",
                         render: function(data, type, row) {
-                            return '<button id="edit">Edit</button> |  <button id="hapus">Hapus</button>';
+                            return '  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-status="Edit">Edit</button>|   <a class="btn btn-primary" href="#" role="button" id="hapus">Hapus</a>';
                         }
                     },
                 ]
@@ -88,6 +107,15 @@
                     cell.innerHTML = i + 1;
                 });
             }).draw();
+
+            $('#exampleModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget).data('status')
+                var modal = $(this)
+                modal.find('.modal-title').text(button + ' Data Kucing')
+                modal.find('.btn-primary').attr('id', button)
+            })
+
+
         });
     </script>
 
