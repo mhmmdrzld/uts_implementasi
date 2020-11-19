@@ -43,20 +43,7 @@
     <?php include 'modals.php' ?>
     <script>
         $(document).ready(function() {
-            $("#Tambah").on("click", function() {
-                alert('gerrr')
-                // $.ajax({
-                //     url: 'simpan.php',
-                //     method: 'POST',
-                //     data: {
-                //         nama_kucing: $('nama-kucing').val(),
-                //         asal_kucing: $('nama-kucing').val()
-                //     },
-                //     success: function(data) {
-                //         alert(data);
-                //     }
-                // });
-            });
+            
 
             var i = 1;
             var table = $('#table_id').DataTable({
@@ -113,6 +100,21 @@
                 var modal = $(this)
                 modal.find('.modal-title').text(button + ' Data Kucing')
                 modal.find('.btn-primary').attr('id', button)
+
+                $("#Tambah").on("click", function() {
+                // alert('gerrr')
+                $.ajax({
+                    url: 'simpan.php',
+                    method: 'POST',
+                    data: {
+                        nama_kucing: $('nama-kucing').val(),
+                        asal_kucing: $('nama-kucing').val()
+                    },
+                    success: function(data) {
+                        alert(data);
+                    }
+                });
+            });
             })
 
 
