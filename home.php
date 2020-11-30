@@ -43,7 +43,7 @@
     <?php include 'modals.php' ?>
     <script>
         $(document).ready(function() {
-            
+
 
             var i = 1;
             var table = $('#table_id').DataTable({
@@ -101,18 +101,21 @@
                 modal.find('.modal-title').text(button + ' Data Kucing')
                 modal.find('.btn-primary').attr('id', button)
 
-                var data = $('#forms').serialize();
+
                 $("#Tambah").on("click", function() {
-                // alert('gerrr')
-                $.ajax({
-                    url: 'simpan.php',
-                    method: 'POST',
-                    data: data,
-                    success: function(data) {
-                        // alert(data);
-                    }
+                    var data = $('#forms').serialize();
+                    $('#nama-kucing').val('');
+                    $('#asal-kucing').val('');
+                    // alert('gerrr')
+                    $.ajax({
+                        url: 'simpan.php',
+                        method: 'POST',
+                        data: data,
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
                 });
-            });
             })
 
 

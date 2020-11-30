@@ -6,7 +6,8 @@ $asal_kucing = $_POST['asal_kucing'];
 
 $query = mysqli_query($conn, "INSERT INTO kucing VALUES (NULL,'$nama_kucing','$asal_kucing');");
 if ($query) {
-    echo '<script language="javascript">alert("Simpan Berhasil !"); document.location="home.php";</script>';
+    echo json_encode(array('pesan' => 'Simpan Berhasil','status'=>1),JSON_PRETTY_PRINT);
 } else {
-    echo '<script language="javascript">alert("Simpan Gagal !"); document.location="home.php";</script>';
+    echo json_encode(array('pesan' => 'Simpan Berhasil'),JSON_PRETTY_PRINT);
+    // echo '<script language="javascript">alert("Simpan Gagal !"); document.location="home.php";</script>';
 }
