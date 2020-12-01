@@ -11,6 +11,7 @@
                 <form id="forms">
                     <div class="form-group">
                         <label for="nama-kucing" class="col-form-label">Nama Kucing:</label>
+                        <input type="hidden" name="id" class="form-control" id="nama-id">
                         <input type="text" name="nama_kucing" class="form-control" id="nama-kucing" require>
                     </div>
                     <div class="form-group">

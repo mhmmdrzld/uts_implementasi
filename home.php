@@ -127,11 +127,16 @@
 
 
             $("#table_id tbody").on("click", "#edit", function() {
-                var id = table.row($(this).parents('tr')).data();
-                console.log(id);
+                var data = table.row($(this).parents('tr')).data();
+                console.log(data);
+                var modal = $('#exampleModal');
+                modal.modal('show');
+                modal.find('.modal-title').text('Edit Data Kucing');
+                modal.find('#id').val(data.id);
+                modal.find('#nama-kucing').val(data.nama_kucing);
+                modal.find('#asal-kucing').val(data.asal_kucing);
 
-                $('#exampleModal').modal('show');
-                $('#exampleModal').find('.modal-title').text('Edit Data Kucing')
+
                 // var dataform = $('#forms').serialize();
 
                 // alert('gerrr')
