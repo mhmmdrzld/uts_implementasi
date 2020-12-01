@@ -103,16 +103,18 @@
 
 
                 $("#Tambah").on("click", function() {
-                    var data = $('#forms').serialize();
+                    var dataform = $('#forms').serialize();
                     $('#nama-kucing').val('');
                     $('#asal-kucing').val('');
                     // alert('gerrr')
                     $.ajax({
                         url: 'simpan.php',
                         method: 'POST',
-                        data: data,
+                        data: dataform,
                         success: function(data) {
-                            console.log(data);
+                            $('#exampleModal').modal('hide')
+                            alert(data['pesan']);
+
                         }
                     });
                 });

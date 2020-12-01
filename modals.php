@@ -14,7 +14,7 @@
                         <input type="text" name="nama_kucing" class="form-control" id="nama-kucing" require>
                     </div>
                     <div class="form-group">
-                        <label for="asal-kucing" class="col-form-label">Asa; Kucing:</label>
+                        <label for="asal-kucing" class="col-form-label">Asal Kucing:</label>
                         <input type="text" name="asal_kucing" class="form-control" id="asal-kucing" require>
                     </div>
                 </form>
