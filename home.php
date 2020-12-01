@@ -44,7 +44,7 @@
     <script>
         $(document).ready(function() {
 
-
+            var modal = $('#exampleModal');
             var i = 1;
             var table = $('#table_id').DataTable({
                 "language": {
@@ -95,7 +95,7 @@
                 });
             }).draw();
 
-            $('#exampleModal').on('show.bs.modal', function(event) {
+            modal.on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget).data('status')
                 var modal = $(this)
                 modal.find('.modal-title').text(button + ' Data Kucing')
@@ -104,8 +104,8 @@
 
                 $("#Tambah").on("click", function() {
                     var dataform = $('#forms').serialize();
-                    $('#nama-kucing').val('');
-                    $('#asal-kucing').val('');
+                    $('#nama-kucing').empty('');
+                    $('#asal-kucing').empty('');
                     // alert('gerrr')
                     $.ajax({
                         url: 'simpan.php',
@@ -118,10 +118,6 @@
                         }
                     });
                 });
-
-
-
-
             });
 
 
@@ -129,28 +125,28 @@
             $("#table_id tbody").on("click", "#edit", function() {
                 var data = table.row($(this).parents('tr')).data();
                 console.log(data);
-                var modal = $('#exampleModal');
                 modal.modal('show');
                 modal.find('.modal-title').text('Edit Data Kucing');
                 modal.find('#id').val(data.id);
                 modal.find('#nama-kucing').val(data.nama_kucing);
                 modal.find('#asal-kucing').val(data.asal_kucing);
-
-
-                // var dataform = $('#forms').serialize();
-
-                // alert('gerrr')
-                // $.ajax({
-                //     url: 'simpan.php',
-                //     method: 'POST',
-                //     data: dataform,
-                //     success: function(data) {
-                //         $('#exampleModal').modal('hide')
-                //         alert(data['pesan']);
-
-                //     }
-                // });
+                // modal.find('.btn-primary').attr('id', 'prosesedit');
             });
+
+            $('#button').on('click', function() {
+                $.ajax({
+                    url: 'simpan.php?aksi=edit',
+                    method: 'POST',
+                    data: $('#forms').serialize(),
+                    success: function(res) {
+                        var datas = JSON.parse(res);
+                        modal.modal('hide')
+                        alert(datas.pesan);
+
+                    }
+                });
+            });
+
         });
     </script>
 
