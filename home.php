@@ -79,8 +79,8 @@
                     },
                     {
                         "data": "id",
-                        render: function(data, type, row) {
-                            return '  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-status="Edit">Edit</button>|   <a class="btn btn-primary" href="#" role="button" id="hapus">Hapus</a>';
+                        render: function(data) {
+                            return ' <a class="btn btn-primary" href="#" role="button" id="edit">Edit</a> |   <a class="btn btn-primary" href="#" role="button" id="hapus">Hapus</a>';
                         }
                     },
                 ]
@@ -118,9 +118,34 @@
                         }
                     });
                 });
-            })
 
 
+
+
+            });
+
+
+
+            $("#table_id tbody").on("click", "#edit", function() {
+                var id = table.row($(this).parents('tr')).data();
+                console.log(id);
+
+                $('#exampleModal').modal('show');
+                $('#exampleModal').find('.modal-title').text('Edit Data Kucing')
+                // var dataform = $('#forms').serialize();
+
+                // alert('gerrr')
+                // $.ajax({
+                //     url: 'simpan.php',
+                //     method: 'POST',
+                //     data: dataform,
+                //     success: function(data) {
+                //         $('#exampleModal').modal('hide')
+                //         alert(data['pesan']);
+
+                //     }
+                // });
+            });
         });
     </script>
 
