@@ -19,15 +19,13 @@ if ($_GET['aksi'] == 'edit') {
 if ($query) {
     echo json_encode(array(
         'pesan' => $aksi . ' Berhasil',
-        'id' => $id,
         'nama_kucing' => $nama_kucing,
         'asal_kucing' => $asal_kucing
-    ));
+    ), JSON_PRETTY_PRINT);
 } else {
     echo json_encode(array(
         'pesan' =>  $aksi . ' Gagal',
         'nama_kucing' => $nama_kucing,
         'asal_kucing' => $asal_kucing
     ), JSON_PRETTY_PRINT);
-    // echo '<script language="javascript">alert("Simpan Gagal !"); document.location="home.php";</script>';
 }

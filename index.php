@@ -28,6 +28,14 @@
                 </form>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                E-mail : admin@kucing.id <br>
+                password : admin@kucing.id
+                <b>Harap Aktifkan Internet!!! Untuk Mengakses Halaman Ini</b>
+            </div>
+        </div>
     </div>
     <?php include 'script.php'; ?>
 </body>
